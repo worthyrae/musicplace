@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Offering</title>
+    <style media="screen">
+    body {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+      flex-wrap: wrap;
+      max-width: 1500px;
+    }
+    .title {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+    }
+    .title h1 {
+      font-weight: normal;
+      font-size: 75px;
+      font-family: serif;
+    }
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    .button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      margin-top: 50px;
+    }
+    .input-form {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .input {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 25px;
+      box-sizing: border-box;
+      padding: 25px 25px;
+      border-radius: 25px;
+      background-color: whitesmoke;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+    .input-submit {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .input-submit h3 {
+      font-size: 20px;
+      font-weight: normal;
+      font-family: serif;
+    }
+
+    .submit input:hover {
+      background-color: gainsboro;
+      transition-duration: .25s;
+      cursor: pointer;
+    }
+    .submit input{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      margin-bottom: 25px;
+      box-sizing: border-box;
+      background-color: whitesmoke;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      padding: 50px 50px;
+      border-radius: 25px;
+      transition-duration: .25s;
+      font-size: 20px;
+      font-family: serif;
+    }
+    .input h3 {
+      width: 25%;
+      font-weight: normal;
+      font-size: 20px;
+      font-family: serif;
+    }
+    .input input {
+      width: 70%;
+      border: none;
+      padding: 10px 20px;
+      background-color: white;
+      box-sizing: border-box;
+      border-radius: 25px;
+      font-size: 20px;
+      font-family: serif;
+      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em inset, rgba(90, 125, 188, 0.05) 0px 0.15em 1em inset;
+    }
+    .input input:focus {
+      outline: none;
+    }
+    .input-submit input:focus {
+      outline: none;
+    }
+    .button h1 {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-weight: normal;
+      font-size: 50px;
+      color: black;
+      box-sizing: border-box;
+      margin-bottom: 25px;
+      font-family: serif;
+      transition-duration: .25s;
+    }
+    .button h1:hover {
+      opacity: .5;
+      transition-duration: .25s;
+      cursor: pointer;
+    }
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      <h1>Offering Dashboard</h1>
+    </div>
+    <div class="container">
+      <div class="button">
+        <h1>Edit Offering</h1>
+      </div>
+      <form class="input-form" id="inputForm" action="/submit" method="GET">
+        <div class="input">
+          <h3>Album Name</h3>
+          <input type="text" name="album_name" id="album_name" value="{{ album_name }}" readonly>
+        </div>
+        <div class="input">
+          <h3>Artist Name</h3>
+          <input type="text" name="artist_name" id="artist_name" value="{{ artist_name }}" readonly>
+        </div>
+        <div class="input">
+          <h3>Release Date</h3>
+          <input type="text" name="release_date" id="release_date" value="{{ release_date }}" placeholder="YYYY, MM, DD, HR, MIN, SEC" required>
+        </div>
+        <div class="input">
+          <h3>Duration</h3>
+          <input type="text" name="duration" id="duration" value="{{ duration }}" required>
+        </div>
+        <div class="input">
+          <h3>Equity %</h3>
+          <input onkeyup="calcProp()" type="text" name="equity" id="equity" value="{{ equity }}" required>
+        </div>
+        <div class="input">
+          <h3>Total Shares</h3>
+          <input onkeyup="calcProp()" type="text" name="total_shares" id="total_shares" value="{{ total_shares }}" required>
+        </div>
+        <div class="input">
+          <h3>$ per Stream</h3>
+          <input onkeyup="calcProp()" type="text" name="revenue_per_stream" id="revenue_per_stream" value="{{ revenue_per_stream }}" required>
+        </div>
+        <div class="input-submit">
+          <div class="submit">
+            <input type="submit" value="Submit">
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
